@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.fri.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.fri.org" xmlns:intf="http://ws.fri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.fri.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getTek">
+    <complexType>
+     <sequence>
+      <element name="callerid" type="xsd:string"/>
+      <element name="calleeid" type="xsd:string"/>
+      <element name="callid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTekResponse">
+    <complexType>
+     <sequence>
+      <element name="getTekReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getTekResponse">
+
+      <wsdl:part element="impl:getTekResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTekRequest">
+
+      <wsdl:part element="impl:getTek" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="KeyWS">
+
+      <wsdl:operation name="getTek">
+
+         <wsdl:input message="impl:getTekRequest" name="getTekRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTekResponse" name="getTekResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="KeyWSSoapBinding" type="impl:KeyWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getTek">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTekRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTekResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="KeyWSService">
+
+      <wsdl:port binding="impl:KeyWSSoapBinding" name="KeyWS">
+
+         <wsdlsoap:address location="http://localhost:8080/HssServer/services/KeyWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

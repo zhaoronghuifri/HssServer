@@ -1,0 +1,69 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from OmWSService WSDL service -->
+
+  <service name="OmWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws"/>
+      <parameter name="wsdlServiceElement" value="OmWSService"/>
+      <parameter name="schemaQualified" value="http://ws"/>
+      <parameter name="wsdlServicePort" value="OmWS"/>
+      <parameter name="className" value="ws.OmWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="OmWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="selectUeInfo" qname="operNS:selectUeInfo" xmlns:operNS="http://ws" returnQName="retNS:selectUeInfoReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ueid" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectUeInfos" qname="operNS:selectUeInfos" xmlns:operNS="http://ws" returnQName="retNS:selectUeInfosReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:start" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:interval" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:begain" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:end" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectCallLog" qname="operNS:selectCallLog" xmlns:operNS="http://ws" returnQName="retNS:selectCallLogReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ueid" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectCallLogByDurationFromHss" qname="operNS:selectCallLogByDurationFromHss" xmlns:operNS="http://ws" returnQName="retNS:selectCallLogByDurationFromHssReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:duration" xmlns:pns="http://ws" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setUeRecorderInHss" qname="operNS:setUeRecorderInHss" xmlns:operNS="http://ws" returnQName="retNS:setUeRecorderInHssReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ueid" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:opt" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectCallLogByFlowFromHss" qname="operNS:selectCallLogByFlowFromHss" xmlns:operNS="http://ws" returnQName="retNS:selectCallLogByFlowFromHssReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:dataflow" xmlns:pns="http://ws" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectCallLogByTimeFromHss" qname="operNS:selectCallLogByTimeFromHss" xmlns:operNS="http://ws" returnQName="retNS:selectCallLogByTimeFromHssReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:timeacs" xmlns:pns="http://ws" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectCallLogs" qname="operNS:selectCallLogs" xmlns:operNS="http://ws" returnQName="retNS:selectCallLogsReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:start" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:interval" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:begain" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:end" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectUeInfoTotalNum" qname="operNS:selectUeInfoTotalNum" xmlns:operNS="http://ws" returnQName="retNS:selectUeInfoTotalNumReturn" xmlns:retNS="http://ws" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:start" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:interval" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:begain" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:end" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="selectCallLogsTotalNum" qname="operNS:selectCallLogsTotalNum" xmlns:operNS="http://ws" returnQName="retNS:selectCallLogsTotalNumReturn" xmlns:retNS="http://ws" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:start" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:interval" xmlns:pns="http://ws" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:begain" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:end" xmlns:pns="http://ws" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="selectUeInfoTotalNum selectCallLogsTotalNum selectCallLogByFlowFromHss selectCallLogByTimeFromHss setUeRecorderInHss selectUeInfos selectCallLogs selectCallLogByDurationFromHss selectCallLog selectUeInfo"/>
+
+  </service>
+</deployment>

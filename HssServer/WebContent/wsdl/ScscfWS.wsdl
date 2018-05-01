@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.fri.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.fri.org" xmlns:intf="http://ws.fri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.fri.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="ueUpdateInfo">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+      <element name="time" type="xsd:dateTime"/>
+      <element name="address" type="xsd:string"/>
+      <element name="status" type="xsd:string"/>
+      <element name="special" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="kek" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ueUpdateInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="ueUpdateInfoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="tekSelect">
+    <complexType>
+     <sequence>
+      <element name="callid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="tekSelectResponse">
+    <complexType>
+     <sequence>
+      <element name="tekSelectReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callLogInit">
+    <complexType>
+     <sequence>
+      <element name="callid" type="xsd:string"/>
+      <element name="caller" type="xsd:string"/>
+      <element name="callee" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callLogInitResponse">
+    <complexType/>
+   </element>
+   <element name="tekDelete">
+    <complexType>
+     <sequence>
+      <element name="callid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="tekDeleteResponse">
+    <complexType>
+     <sequence>
+      <element name="tekDeleteReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callLogUpdate">
+    <complexType>
+     <sequence>
+      <element name="callid" type="xsd:string"/>
+      <element name="SipState" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callLogUpdateResponse">
+    <complexType>
+     <sequence>
+      <element name="callLogUpdateReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callLogAbort">
+    <complexType>
+     <sequence>
+      <element name="callid" type="xsd:string"/>
+      <element name="phrase" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callLogAbortResponse">
+    <complexType/>
+   </element>
+   <element name="recKeySelect">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recKeySelectResponse">
+    <complexType>
+     <sequence>
+      <element name="recKeySelectReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ueSelectInfo">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ueSelectInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="ueSelectInfoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ueDeleteInfo">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ueDeleteInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="ueDeleteInfoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ueInsertInfo">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+      <element name="time" type="xsd:dateTime"/>
+      <element name="address" type="xsd:string"/>
+      <element name="status" type="xsd:string"/>
+      <element name="special" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="kek" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ueInsertInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="ueInsertInfoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="tekInsert">
+    <complexType>
+     <sequence>
+      <element name="callid" type="xsd:string"/>
+      <element name="caller" type="xsd:string"/>
+      <element name="callee" type="xsd:string"/>
+      <element name="tek" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="tekInsertResponse">
+    <complexType>
+     <sequence>
+      <element name="tekInsertReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="callLogAbortResponse">
+
+      <wsdl:part element="impl:callLogAbortResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callLogInitRequest">
+
+      <wsdl:part element="impl:callLogInit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="tekInsertResponse">
+
+      <wsdl:part element="impl:tekInsertResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueUpdateInfoResponse">
+
+      <wsdl:part element="impl:ueUpdateInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueInsertInfoResponse">
+
+      <wsdl:part element="impl:ueInsertInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueInsertInfoRequest">
+
+      <wsdl:part element="impl:ueInsertInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="tekSelectRequest">
+
+      <wsdl:part element="impl:tekSelect" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callLogAbortRequest">
+
+      <wsdl:part element="impl:callLogAbort" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="recKeySelectRequest">
+
+      <wsdl:part element="impl:recKeySelect" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="tekInsertRequest">
+
+      <wsdl:part element="impl:tekInsert" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueDeleteInfoRequest">
+
+      <wsdl:part element="impl:ueDeleteInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="recKeySelectResponse">
+
+      <wsdl:part element="impl:recKeySelectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callLogInitResponse">
+
+      <wsdl:part element="impl:callLogInitResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueDeleteInfoResponse">
+
+      <wsdl:part element="impl:ueDeleteInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callLogUpdateResponse">
+
+      <wsdl:part element="impl:callLogUpdateResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueSelectInfoRequest">
+
+      <wsdl:part element="impl:ueSelectInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="tekSelectResponse">
+
+      <wsdl:part element="impl:tekSelectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callLogUpdateRequest">
+
+      <wsdl:part element="impl:callLogUpdate" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="tekDeleteResponse">
+
+      <wsdl:part element="impl:tekDeleteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueSelectInfoResponse">
+
+      <wsdl:part element="impl:ueSelectInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="tekDeleteRequest">
+
+      <wsdl:part element="impl:tekDelete" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ueUpdateInfoRequest">
+
+      <wsdl:part element="impl:ueUpdateInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ScscfWS">
+
+      <wsdl:operation name="ueUpdateInfo">
+
+         <wsdl:input message="impl:ueUpdateInfoRequest" name="ueUpdateInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ueUpdateInfoResponse" name="ueUpdateInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="tekSelect">
+
+         <wsdl:input message="impl:tekSelectRequest" name="tekSelectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:tekSelectResponse" name="tekSelectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="callLogInit">
+
+         <wsdl:input message="impl:callLogInitRequest" name="callLogInitRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:callLogInitResponse" name="callLogInitResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="tekDelete">
+
+         <wsdl:input message="impl:tekDeleteRequest" name="tekDeleteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:tekDeleteResponse" name="tekDeleteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="callLogUpdate">
+
+         <wsdl:input message="impl:callLogUpdateRequest" name="callLogUpdateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:callLogUpdateResponse" name="callLogUpdateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="callLogAbort">
+
+         <wsdl:input message="impl:callLogAbortRequest" name="callLogAbortRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:callLogAbortResponse" name="callLogAbortResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="recKeySelect">
+
+         <wsdl:input message="impl:recKeySelectRequest" name="recKeySelectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:recKeySelectResponse" name="recKeySelectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ueSelectInfo">
+
+         <wsdl:input message="impl:ueSelectInfoRequest" name="ueSelectInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ueSelectInfoResponse" name="ueSelectInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ueDeleteInfo">
+
+         <wsdl:input message="impl:ueDeleteInfoRequest" name="ueDeleteInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ueDeleteInfoResponse" name="ueDeleteInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ueInsertInfo">
+
+         <wsdl:input message="impl:ueInsertInfoRequest" name="ueInsertInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ueInsertInfoResponse" name="ueInsertInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="tekInsert">
+
+         <wsdl:input message="impl:tekInsertRequest" name="tekInsertRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:tekInsertResponse" name="tekInsertResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ScscfWSSoapBinding" type="impl:ScscfWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="ueUpdateInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ueUpdateInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ueUpdateInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="tekSelect">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="tekSelectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="tekSelectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="callLogInit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="callLogInitRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="callLogInitResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="tekDelete">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="tekDeleteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="tekDeleteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="callLogUpdate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="callLogUpdateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="callLogUpdateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="callLogAbort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="callLogAbortRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="callLogAbortResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="recKeySelect">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="recKeySelectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="recKeySelectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ueSelectInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ueSelectInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ueSelectInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ueDeleteInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ueDeleteInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ueDeleteInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ueInsertInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ueInsertInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ueInsertInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="tekInsert">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="tekInsertRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="tekInsertResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ScscfWSService">
+
+      <wsdl:port binding="impl:ScscfWSSoapBinding" name="ScscfWS">
+
+         <wsdlsoap:address location="http://localhost:8080/HssServer/services/ScscfWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sip-app>
+ 
+	<app-name>HssSipServlet</app-name>
+	<display-name>HssSipServlet</display-name>
+	<description>HssSipServlet</description>
+	
+	<main-servlet>
+		HssSipServlet
+	</main-servlet>
+
+
+	<listener>
+		<listener-class>
+			org.fri.sip.HssSipServlet
+		</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>HssSipServlet</servlet-name>
+		<display-name>HssSipServlet</display-name>
+		<description>HssSipServlet</description>
+		<servlet-class>
+			org.fri.sip.HssSipServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+</sip-app>

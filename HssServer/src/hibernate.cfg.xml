@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider
+		</property>
+
+		<!-- ###########################
+		### C3P0 Connection Pool###
+		###########################
+		#hibernate.c3p0.max_size 2
+		#hibernate.c3p0.min_size 2
+		#hibernate.c3p0.timeout 5000
+		#hibernate.c3p0.max_statements 100
+		#hibernate.c3p0.idle_test_period 3000
+		#hibernate.c3p0.acquire_increment 2
+		#hibernate.c3p0.validate false
+		在hibernate.cfg.xml文件里面加入如下的配置： -->
+		<property name="hibernate.c3p0.max_size">50</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">120</property>
+        <property name="automaticTestTable">Test</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">120</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="c3p0.testConnectionOnCheckout">true</property>
+        <property name="c3p0.idleConnectionTestPeriod">18000</property>
+        <property name="c3p0.maxIdleTime">25000</property>
+        <property name="c3p0.idle_test_period">120</property>
+		
+
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://scscf.pmostalk.cn:3306/hss</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">Fricom2015</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+		<!--jdbc.fetch_size是指Hibernate每次从数据库中取出并放到JDBC的Statement中的记录条数。Fetch Size设的越大，读数据库的次数越少，速度越快，Fetch 
+			Size越小，读数据库的次数越多，速度越慢 -->
+		<property name="jdbc.fetch_size">50 </property>
+		<!--jdbc.batch_size是指Hibernate批量插入,删除和更新时每次操作的记录数。Batch Size越大，批量操作的向数据库发送Sql的次数越少，速度就越快，同样耗用内存就越大 -->
+		<property name="jdbc.batch_size">23 </property>
+		<!--jdbc.use_scrollable_resultset是否允许Hibernate用JDBC的可滚动的结果集。对分页的结果集。对分页时的设置非常有帮助 -->
+		<property name="jdbc.use_scrollable_resultset">false </property>
+		<!--connection.useUnicode连接数据库时是否使用Unicode编码 -->
+		<property name="Connection.useUnicode">true </property>
+		<!--connection.characterEncoding连接数据库时数据的传输字符集编码方式，最好设置为gbk，用gb2312有的字符不全 -->
+		<property name="connection.characterEncoding">utf-8 </property>
+		<property name="hibernate.current_session_context_class">thread	</property>
+
+		<mapping resource="classes/UeInfo.hbm.xml" />
+		<mapping resource="classes/TekInfo.hbm.xml" />
+		<mapping resource="classes/Recorder.hbm.xml" />
+		<mapping resource="classes/CallLog.hbm.xml" />
+		<mapping resource="classes/Devices.hbm.xml" />
+		
+	</session-factory>
+</hibernate-configuration>  

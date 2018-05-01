@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.fri.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.fri.org" xmlns:intf="http://ws.fri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.fri.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="selectUeInfo">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectUeInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="selectUeInfoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectUeInfos">
+    <complexType>
+     <sequence>
+      <element name="start" type="xsd:int"/>
+      <element name="interval" type="xsd:int"/>
+      <element name="begain" type="xsd:dateTime"/>
+      <element name="end" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectUeInfosResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="selectUeInfosReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLog">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="selectCallLogReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogByDurationFromHss">
+    <complexType>
+     <sequence>
+      <element name="duration" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogByDurationFromHssResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="selectCallLogByDurationFromHssReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setUeRecorderInHss">
+    <complexType>
+     <sequence>
+      <element name="ueid" type="xsd:string"/>
+      <element name="opt" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setUeRecorderInHssResponse">
+    <complexType>
+     <sequence>
+      <element name="setUeRecorderInHssReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogByFlowFromHss">
+    <complexType>
+     <sequence>
+      <element name="dataflow" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogByFlowFromHssResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="selectCallLogByFlowFromHssReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogByTimeFromHss">
+    <complexType>
+     <sequence>
+      <element name="timeacs" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogByTimeFromHssResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="selectCallLogByTimeFromHssReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogs">
+    <complexType>
+     <sequence>
+      <element name="start" type="xsd:int"/>
+      <element name="interval" type="xsd:int"/>
+      <element name="begain" type="xsd:dateTime"/>
+      <element name="end" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="selectCallLogsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectUeInfoTotalNum">
+    <complexType>
+     <sequence>
+      <element name="start" type="xsd:int"/>
+      <element name="interval" type="xsd:int"/>
+      <element name="begain" type="xsd:dateTime"/>
+      <element name="end" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectUeInfoTotalNumResponse">
+    <complexType>
+     <sequence>
+      <element name="selectUeInfoTotalNumReturn" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogsTotalNum">
+    <complexType>
+     <sequence>
+      <element name="start" type="xsd:int"/>
+      <element name="interval" type="xsd:int"/>
+      <element name="begain" type="xsd:dateTime"/>
+      <element name="end" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectCallLogsTotalNumResponse">
+    <complexType>
+     <sequence>
+      <element name="selectCallLogsTotalNumReturn" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="selectUeInfoTotalNumResponse">
+
+      <wsdl:part element="impl:selectUeInfoTotalNumResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectUeInfoRequest">
+
+      <wsdl:part element="impl:selectUeInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectUeInfosRequest">
+
+      <wsdl:part element="impl:selectUeInfos" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogByDurationFromHssResponse">
+
+      <wsdl:part element="impl:selectCallLogByDurationFromHssResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setUeRecorderInHssRequest">
+
+      <wsdl:part element="impl:setUeRecorderInHss" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogByTimeFromHssRequest">
+
+      <wsdl:part element="impl:selectCallLogByTimeFromHss" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogsTotalNumRequest">
+
+      <wsdl:part element="impl:selectCallLogsTotalNum" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectUeInfoResponse">
+
+      <wsdl:part element="impl:selectUeInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogByFlowFromHssRequest">
+
+      <wsdl:part element="impl:selectCallLogByFlowFromHss" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectUeInfosResponse">
+
+      <wsdl:part element="impl:selectUeInfosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogResponse">
+
+      <wsdl:part element="impl:selectCallLogResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogByTimeFromHssResponse">
+
+      <wsdl:part element="impl:selectCallLogByTimeFromHssResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogsResponse">
+
+      <wsdl:part element="impl:selectCallLogsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogsRequest">
+
+      <wsdl:part element="impl:selectCallLogs" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogRequest">
+
+      <wsdl:part element="impl:selectCallLog" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectUeInfoTotalNumRequest">
+
+      <wsdl:part element="impl:selectUeInfoTotalNum" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogsTotalNumResponse">
+
+      <wsdl:part element="impl:selectCallLogsTotalNumResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogByFlowFromHssResponse">
+
+      <wsdl:part element="impl:selectCallLogByFlowFromHssResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectCallLogByDurationFromHssRequest">
+
+      <wsdl:part element="impl:selectCallLogByDurationFromHss" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setUeRecorderInHssResponse">
+
+      <wsdl:part element="impl:setUeRecorderInHssResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="OmWS">
+
+      <wsdl:operation name="selectUeInfo">
+
+         <wsdl:input message="impl:selectUeInfoRequest" name="selectUeInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectUeInfoResponse" name="selectUeInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectUeInfos">
+
+         <wsdl:input message="impl:selectUeInfosRequest" name="selectUeInfosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectUeInfosResponse" name="selectUeInfosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLog">
+
+         <wsdl:input message="impl:selectCallLogRequest" name="selectCallLogRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectCallLogResponse" name="selectCallLogResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogByDurationFromHss">
+
+         <wsdl:input message="impl:selectCallLogByDurationFromHssRequest" name="selectCallLogByDurationFromHssRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectCallLogByDurationFromHssResponse" name="selectCallLogByDurationFromHssResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setUeRecorderInHss">
+
+         <wsdl:input message="impl:setUeRecorderInHssRequest" name="setUeRecorderInHssRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setUeRecorderInHssResponse" name="setUeRecorderInHssResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogByFlowFromHss">
+
+         <wsdl:input message="impl:selectCallLogByFlowFromHssRequest" name="selectCallLogByFlowFromHssRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectCallLogByFlowFromHssResponse" name="selectCallLogByFlowFromHssResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogByTimeFromHss">
+
+         <wsdl:input message="impl:selectCallLogByTimeFromHssRequest" name="selectCallLogByTimeFromHssRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectCallLogByTimeFromHssResponse" name="selectCallLogByTimeFromHssResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogs">
+
+         <wsdl:input message="impl:selectCallLogsRequest" name="selectCallLogsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectCallLogsResponse" name="selectCallLogsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectUeInfoTotalNum">
+
+         <wsdl:input message="impl:selectUeInfoTotalNumRequest" name="selectUeInfoTotalNumRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectUeInfoTotalNumResponse" name="selectUeInfoTotalNumResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogsTotalNum">
+
+         <wsdl:input message="impl:selectCallLogsTotalNumRequest" name="selectCallLogsTotalNumRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectCallLogsTotalNumResponse" name="selectCallLogsTotalNumResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OmWSSoapBinding" type="impl:OmWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="selectUeInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectUeInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectUeInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectUeInfos">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectUeInfosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectUeInfosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLog">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectCallLogRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectCallLogResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogByDurationFromHss">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectCallLogByDurationFromHssRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectCallLogByDurationFromHssResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setUeRecorderInHss">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setUeRecorderInHssRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setUeRecorderInHssResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogByFlowFromHss">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectCallLogByFlowFromHssRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectCallLogByFlowFromHssResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogByTimeFromHss">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectCallLogByTimeFromHssRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectCallLogByTimeFromHssResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectCallLogsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectCallLogsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectUeInfoTotalNum">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectUeInfoTotalNumRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectUeInfoTotalNumResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectCallLogsTotalNum">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectCallLogsTotalNumRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectCallLogsTotalNumResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OmWSService">
+
+      <wsdl:port binding="impl:OmWSSoapBinding" name="OmWS">
+
+         <wsdlsoap:address location="http://localhost:8080/HssServer/services/OmWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

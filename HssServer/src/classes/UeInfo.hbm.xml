@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="classes">
+	<class name="UeInfo" table="UEINFO">
+		<id name="ueid" column="UEID">
+			<generator class="assigned" />
+		</id>
+		<property name="time" type="timestamp" column="TIMESTAMPS" />
+		<property name="address" column="ADDRESS" />
+		<property name="status" column="STATUS" />
+		<property name="special" column="SPECIAL" />
+		<property name="domain" column="DOMAIN" />
+		<property name="kek" column="KEK" />
+		
+	</class>
+
+</hibernate-mapping>  

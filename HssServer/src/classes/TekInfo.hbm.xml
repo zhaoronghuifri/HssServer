@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="classes">
+	<class name="TekInfo" table="TEKINFO">
+		<id name="callid" column="CALLID">
+			<generator class="assigned" />
+		</id>
+		<property name="time" column="TIMESTAMPS" />
+		<property name="caller" column="CALLER" />
+		<property name="callee" column="CALLEE" />
+		<property name="tek" column="TEK" />
+	</class>
+</hibernate-mapping>  
